@@ -1,0 +1,67 @@
+{
+  "name": "customers-templates",
+  "version": "0.1.0",
+  "description": "Reusable React/Next.js customer templates for Rolling Offer UI components.",
+  "type": "module",
+  "license": "MIT",
+  "author": "",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "vite build",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "demo:install": "cd customers-templates-next && npm install",
+    "demo:dev": "npm run build && cd customers-templates-next && npm run dev"
+  },
+  "peerDependencies": {
+    "@types/react": ">=18",
+    "@types/react-dom": ">=18",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "8.6.14",
+    "@storybook/addon-interactions": "8.6.14",
+    "@storybook/addon-links": "8.6.14",
+    "@storybook/blocks": "8.6.14",
+    "@storybook/react-vite": "8.6.14",
+    "@tailwindcss/vite": "^4.2.4",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "@vitejs/plugin-react": "4.3.4",
+    "eslint": "latest",
+    "eslint-config-prettier": "latest",
+    "eslint-plugin-react-hooks": "latest",
+    "eslint-plugin-react-refresh": "latest",
+    "prettier": "latest",
+    "storybook": "8.6.14",
+    "tailwindcss": "^4.2.4",
+    "typescript": "latest",
+    "typescript-eslint": "latest",
+    "vite": "6.2.3",
+    "vite-plugin-dts": "latest"
+  },
+  "dependencies": {
+    "framer-motion": "^12.38.0"
+  }
+}

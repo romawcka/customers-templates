@@ -1,0 +1,8 @@
+node_modules
+dist
+storybook-static
+.DS_Store
+.env
+customers-templates-next/.next
+customers-templates-next/node_modules
+.claude
