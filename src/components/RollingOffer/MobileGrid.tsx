@@ -7,8 +7,22 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
 type Phase = 'idle' | 'processing' | 'revealing' | 'flying';
+type ArrowDirection = 'right' | 'left' | 'down';
 
 const wait = (ms: number) => new Promise<void>((res) => setTimeout(res, ms));
+const arrowRotation: Record<ArrowDirection, number> = {
+  right: -45,
+  left: 135,
+  down: 45,
+};
+
+const GridArrow = ({ direction }: { direction: ArrowDirection }) => (
+  <span
+    aria-hidden="true"
+    className="block size-2.5 rounded-br-xs border-r-2 border-b-2 border-white"
+    style={{ transform: `rotate(${arrowRotation[direction]}deg)` }}
+  />
+);
 
 type MobileGridProps = {
   products: RollingOfferProduct[];
@@ -110,7 +124,7 @@ export const MobileGrid = ({ products, onProductClick, collectTrigger }: MobileG
               className="absolute flex items-center justify-center select-none pointer-events-none"
               style={{ left: CARD, top: ri * (CARD + ROW_GAP), width: COL_GAP, height: CARD }}
             >
-              <span className="text-white font-bold text-2xl">{even ? '>' : '<'}</span>
+              <GridArrow direction={even ? 'right' : 'left'} />
             </div>
           );
         })}
@@ -129,7 +143,7 @@ export const MobileGrid = ({ products, onProductClick, collectTrigger }: MobileG
                 height: ROW_GAP,
               }}
             >
-              <span className="text-white font-bold text-2xl">⌄</span>
+              <GridArrow direction="down" />
             </div>
           );
         })}
